@@ -1,0 +1,26 @@
+.btn-up {
+  position: fixed;
+  background: rgba(65, 93, 232, 0.16);
+  right: 35px;
+  bottom: 20px;
+  border-radius: 22px;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+}
+
+.btn-up svg {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 12px;
+  top: 12px;
+}
+
+.btn-up:hover {
+  background: rgba(65, 93, 232, 0.24);
+}
+
+.btn-up:hover svg g {
+  stroke: #3260ec
+}
