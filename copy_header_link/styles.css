@@ -1,0 +1,33 @@
+.unnum {
+  /* display: flex; */
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+}
+
+.copy_btn {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.copy_btn>g, .copy_btn>g>g, .copy_btn>path {
+  fill: #222B55B8;
+}
+
+.copy_btn:hover>g, .copy_btn:hover>g>g, .copy_btn:hover>path {
+  fill: #222B55;
+}
+
+.copy_btn:active>g, .copy_btn:active>g>g, .copy_btn:active>path {
+  fill: #7B829A;
+}
+
+.check_icon {
+  width: 24px;
+  height: 24px;
+}
+
+.cls-1 {
+  stroke: #222B55;
+}
