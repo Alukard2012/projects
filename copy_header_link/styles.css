@@ -1,14 +1,25 @@
 .unnum {
-  /* display: flex; */
-  align-items: center;
-  justify-content: left;
-  gap: 10px;
+  position: relative;
+  margin-top: 20px;
 }
 
 .copy_btn {
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+.unnum::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 10px; /* Длина псевдоэлемента равна отступу между заголовком и кнопкой */
+  height: 100%;
+  pointer-events: auto;
 }
 
 .copy_btn>g, .copy_btn>g>g, .copy_btn>path {
@@ -24,10 +35,17 @@
 }
 
 .check_icon {
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
   width: 24px;
   height: 24px;
 }
 
 .cls-1 {
   stroke: #222B55;
+}
+
+.hidden {
+  display: none;
 }
