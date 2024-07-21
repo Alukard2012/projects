@@ -1,23 +1,23 @@
 'use strict';
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
   function findBodyElem(selector) {
-      return document.body.querySelector(selector);
+    return document.body.querySelector(selector);
   }
 
   function showElem(elem) {
-      if (elem) {
-          elem.style.display = 'block';
-      }
+    if (elem) {
+      elem.style.display = 'block';
+    }
   }
 
   function showBtn(elem, btn) {
-      if (elem) {
-          showElem(btn);
-          return true;
-      }
-      return false;
+    if (elem) {
+      showElem(btn);
+      return true;
+    }
+    return false;
   }
 
   const contentWindow = document.getElementById('mc-main-content'); // Определяем область поиска управляемых элементов
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if (highlightButton) {
-      highlightButton.addEventListener('click', () =>  {
+      highlightButton.addEventListener('click', () => {
         if (!highlight) {
           highlightButton.disabled = true;
         }
@@ -69,18 +69,18 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // Наблюдатель за изменениями в DOM для подсветки
-  const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        mutation.addedNodes.forEach(function(node) {
-          if (node.nodeType === Node.ELEMENT_NODE && node.matches('span.SearchHighlight')) {
-            // Обновляем кнопки подсветки и разделитель при добавлении нового элемента подсветки в DOM
-            const isHighlightBtnAvailable = updateHighlightButton(observer);
-            if (isHighlightBtnAvailable) {
-              updateSeparator();
-            }
+  const observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      mutation.addedNodes.forEach(function (node) {
+        if (node.nodeType === Node.ELEMENT_NODE && node.matches('span.SearchHighlight')) {
+          // Обновляем кнопки подсветки и разделитель при добавлении нового элемента подсветки в DOM
+          const isHighlightBtnAvailable = updateHighlightButton(observer);
+          if (isHighlightBtnAvailable) {
+            updateSeparator();
           }
-        });
+        }
       });
+    });
   });
 
   observer.observe(document.body, { childList: true, subtree: true }); // Настраиваем наблюдение за изменениями в теле документа
