@@ -20,7 +20,7 @@ def ensure_docker_running():
         subprocess.check_output(["docker", "info"], stderr=subprocess.STDOUT)
         print("Docker daemon is running.", flush=True)
     except subprocess.CalledProcessError:
-        print("Docker daemon is not running.", flush=True)
+        print("Docker daemon is not running. Start Docker and retry.", flush=True)
         sys.exit(1)
 
 
@@ -147,6 +147,8 @@ if __name__ == "__main__":
     node_installed = is_program_installed("node")
     npm_installed = is_program_installed("npm")
     pip_installed = is_program_installed("pip")
+    puppeteer_installed = is_puppeteer_installed()
+    python_dependencies_satisfied = check_python_dependencies()
 
     if not node_installed:
         install_node()
@@ -157,11 +159,9 @@ if __name__ == "__main__":
     if not pip_installed:
         install_pip()
 
-    puppeteer_installed = is_puppeteer_installed()
     if not puppeteer_installed:
         install_puppeteer()
 
-    python_dependencies_satisfied = check_python_dependencies()
     if not python_dependencies_satisfied:
         install_python_dependencies()
 
